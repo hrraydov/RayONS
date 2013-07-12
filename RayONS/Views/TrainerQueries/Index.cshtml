@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var item in Model)
+{
+    <form method="post">
+        @item[0]
+        @item[1]
+        <input type="hidden" name="userName" value="@item" />
+        <input class="smallSubmitButton" type="submit" value="Направи обучаващ" />
+    </form>
+}

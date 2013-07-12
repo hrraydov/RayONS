@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Index";
+    string error = ViewBag.Error;
+}
+
+<h2>Index</h2>
+@if (!error.IsEmpty())
+{ 
+    <h3>@ViewBag.Error</h3>
+}
+<form method="post">
+    <input type="hidden" name="id" value="1" />
+    <textarea name="why">
+    </textarea>
+    <input type="submit" value="Подай заявка за обучаващ" />
+</form>

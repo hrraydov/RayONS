@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3F5E67F-9446-4D53-893F-5B9081B50147}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RayONS.DAL</RootNamespace>
+    <AssemblyName>RayONS.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriesDAL.cs" />
+    <Compile Include="Category.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryQuery.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lesson.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LessonsDAL.cs" />
+    <Compile Include="Membership.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipDAL.cs" />
+    <Compile Include="Profile.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RayONS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RayONS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RayONS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RayONS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RayONS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition1_Result.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams1_Result.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubcategoriesDAL.cs" />
+    <Compile Include="Subcategory.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestsDAL.cs" />
+    <Compile Include="TestsResult.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainerQuery.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainerQueryDAL.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>RayONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="RayONS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RayONS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="RayONS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RayONS.edmx</DependentUpon>
+      <LastGenOutput>RayONS.Context.cs</LastGenOutput>
+    </None>
+    <None Include="RayONS.edmx.diagram">
+      <DependentUpon>RayONS.edmx</DependentUpon>
+    </None>
+    <None Include="RayONS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RayONS.edmx</DependentUpon>
+      <LastGenOutput>RayONS.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

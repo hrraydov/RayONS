@@ -1,0 +1,25 @@
+﻿@model RayONS.DAL.TrainerQuery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<fieldset>
+    <legend>Заявка за обучаващ</legend>
+
+    <div class="display-label">Потребител</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">Защо?</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Why)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Обратно към списъка", "Index")
+</p>

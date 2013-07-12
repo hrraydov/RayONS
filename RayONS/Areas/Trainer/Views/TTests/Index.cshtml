@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RayONS.DAL.Test>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Тестове</h2>
+<script>
+    $(document).ready(function () {
+        oTable = $('#dataTable').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
+<p>
+    @Html.ActionLink("Създай нов", "Create")
+</p>
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>Име на теста
+            </th>
+            <th>Автор
+            </th>
+            <th>Одобрен ли е?
+            </th>
+            <th>Подкатегория
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @if (item.isApproved == 1)
+                    { <span>Да</span>}
+                    else
+                    {<span>Не</span>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategory.SubcategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактирай", "Edit", new { id = item.TestId }) |
+            @Html.ActionLink("Детайли", "Details", new { id = item.TestId }) |
+            @Html.ActionLink("Изтрий", "Delete", new { id = item.TestId }) |
+            <a href="/Trainer/TestsQuestions/Index/@item.TestId">Въпроси</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

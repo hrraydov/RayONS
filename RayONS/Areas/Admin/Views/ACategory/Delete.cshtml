@@ -1,0 +1,23 @@
+﻿@model RayONS.DAL.Category
+
+@{
+    ViewBag.Title = "Изтрий";
+}
+
+<h2>Изтрий</h2>
+
+<h3>Сигурен ли си, че искаш да я изтриеш?</h3>
+<fieldset>
+    <legend>Категория</legend>
+
+    <div class="display-label">Име на категорията:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Изтрий" /> |
+        @Html.ActionLink("Към списъка", "Index")
+    </p>
+}

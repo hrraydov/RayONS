@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a96f685c3575463e995a5b9ac08c2fbb" Name="Diagram1" >
+        <EntityTypeShape EntityType="RayONSModel.Application" Width="1.5" PointX="7.1280479315333292" PointY="19.724027881270288" />
+        <EntityTypeShape EntityType="RayONSModel.Membership" Width="1.5" PointX="9.39427517978208" PointY="6.0576399741962739" />
+        <EntityTypeShape EntityType="RayONSModel.Profile" Width="1.5" PointX="4.6705451666705988" PointY="4.842124717702216" />
+        <EntityTypeShape EntityType="RayONSModel.Role" Width="1.5" PointX="1.4826770990540634" PointY="30.315079032590184" />
+        <EntityTypeShape EntityType="RayONSModel.User" Width="1.5" PointX="1.5738368619111536" PointY="9.63597211690432" />
+        <AssociationConnector Association="RayONSModel.MembershipApplication" />
+        <AssociationConnector Association="RayONSModel.RoleApplication" />
+        <AssociationConnector Association="RayONSModel.UserApplication" />
+        <AssociationConnector Association="RayONSModel.MembershipUser" />
+        <AssociationConnector Association="RayONSModel.UserProfile" />
+        <AssociationConnector Association="RayONSModel.UsersInRoles" />
+        <EntityTypeShape EntityType="RayONSModel.Category" Width="1.5" PointX="3" PointY="15" />
+        <EntityTypeShape EntityType="RayONSModel.Subcategory" Width="1.5" PointX="0.5" PointY="13.375" />
+        <AssociationConnector Association="RayONSModel.FK_Subcategories_Categories" />
+        <EntityTypeShape EntityType="RayONSModel.Lesson" Width="1.5" PointX="5.625" PointY="11" />
+        <AssociationConnector Association="RayONSModel.FK_Lessons_Subcategories" />
+        <AssociationConnector Association="RayONSModel.FK_Lessons_Users" />
+        <EntityTypeShape EntityType="RayONSModel.TrainerQuery" Width="1.5" PointX="1.375" PointY="2.875" />
+        <EntityTypeShape EntityType="RayONSModel.Question" Width="1.5" PointX="2.0986641301301607" PointY="4.653778286955216" />
+        <EntityTypeShape EntityType="RayONSModel.Test" Width="1.5" PointX="3.0659733913214753" PointY="19.149493345594728" />
+        <AssociationConnector Association="RayONSModel.FK_Questions_Tests" />
+        <AssociationConnector Association="RayONSModel.FK_Tests_Users" />
+        <AssociationConnector Association="RayONSModel.FK_Tests_Subcategories" />
+        <EntityTypeShape EntityType="RayONSModel.TestsResult" Width="1.5" PointX="4.7180361862844027" PointY="21.41898819311475" />
+        <AssociationConnector Association="RayONSModel.FK_TestsResults_Tests" />
+        <AssociationConnector Association="RayONSModel.FK_TestsResults_Users" />
+        <AssociationConnector Association="RayONSModel.FK_TrainerQueries_Users" />
+        <EntityTypeShape EntityType="RayONSModel.CategoryQuery" Width="1.5" PointX="8.43959679288771" PointY="3.2448763415426369" />
+        <AssociationConnector Association="RayONSModel.FK_CategoryQueries_CategoryQueries" />
+        <EntityTypeShape EntityType="RayONSModel.sysdiagram" Width="1.5" PointX="10.312243010062836" PointY="14.302893049224696" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

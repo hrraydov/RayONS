@@ -1,0 +1,18 @@
+﻿@model List<RayONS.Models.LessonsViewModel>
+@{
+    ViewBag.Title = "ViewLessons";
+}
+
+<h2>@ViewBag.SubcategoryName</h2>
+@if (Model.Count() != 0)
+{
+    foreach (var item in Model)
+    {
+    <a class="lessonLink" data-lesson-name="@item.LessonName" data-target="@item.LessonCode" href="#">@item.LessonName</a><br />
+    }
+
+    for (int i = 1; i <= (int)ViewData["numberOfPages"]; i++)
+    {
+    <a class="pageLink" data-subcategory-id="@ViewBag.SubcategoryId" data-page-number="@i" href="#">@i</a>
+    }
+}

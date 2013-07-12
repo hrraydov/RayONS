@@ -1,0 +1,107 @@
+﻿@model RayONS.DAL.Question
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактирай</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Question</legend>
+
+        @Html.HiddenFor(model => model.QuestionId)
+
+        @Html.HiddenFor(model => model.TestId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TrueAnswer)
+        </div>
+        <div class="editor-field">
+            @if (Model.TrueAnswer == 1)
+            {
+                <input id="TrueAnswer1" type="radio" checked name="TrueAnswer" value="1" /><label for="TrueAnswer1">1</label>
+            }
+            else
+            {
+                <input id="TrueAnswer1" type="radio" name="TrueAnswer" value="1" /><label for="TrueAnswer1">1</label>
+            }
+            @if (Model.TrueAnswer == 2)
+            {
+                <input id="TrueAnswer2" type="radio" checked name="TrueAnswer" value="2" /><label for="TrueAnswer2">2</label>
+            }
+            else
+            {
+                <input id="TrueAnswer2" type="radio" name="TrueAnswer" value="2" /><label for="TrueAnswer2">2</label>
+            }@if (Model.TrueAnswer == 3)
+             {
+                <input id="TrueAnswer3" type="radio" checked name="TrueAnswer" value="3" /><label for="TrueAnswer3">3</label>
+             }
+             else
+             {
+                <input id="TrueAnswer3" type="radio" name="TrueAnswer" value="3" /><label for="TrueAnswer3">3</label>
+             }@if (Model.TrueAnswer == 4)
+              {
+                 <input id="TrueAnswer4" type="radio" checked name="TrueAnswer" value="4" /><label for="TrueAnswer4">4</label>
+              }
+              else
+              {
+                 <input id="TrueAnswer4" type="radio" name="TrueAnswer" value="4" /><label for="TrueAnswer4">4</label>
+              }
+            @Html.ValidationMessageFor(model => model.TrueAnswer)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionName)
+            @Html.ValidationMessageFor(model => model.QuestionName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Answer1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Answer1)
+            @Html.ValidationMessageFor(model => model.Answer1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Answer2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Answer2)
+            @Html.ValidationMessageFor(model => model.Answer2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Answer3)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Answer3)
+            @Html.ValidationMessageFor(model => model.Answer3)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Answer4)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Answer4)
+            @Html.ValidationMessageFor(model => model.Answer4)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

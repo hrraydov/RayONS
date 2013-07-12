@@ -1,0 +1,45 @@
+﻿@model List<RayONS.DAL.TestsResult>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Резултати</h2>
+<script>
+    $(document).ready(function () {
+        oTable = $('#dataTable').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
+@Html.ActionLink("Виж твоите резултати", "Index")
+<span>|</span>
+@if (User.IsInRole("Administrator"))
+{
+    @Html.ActionLink("Виж всички резултати", "ViewAllResults");
+    <span>|</span>
+}
+@if (User.IsInRole("Trainer") || User.IsInRole("Administrator"))
+{
+    @Html.ActionLink("Виж резултатите за твоите тестове", "ViewResultsForTest")
+ 
+}
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>Тест</th>
+            <th>Потребител</th>
+            <th>Резултат</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Test.TestName</td>
+                <td>@item.User.UserName</td>
+                <td>@item.Result/@item.QuestionsCount</td>
+            </tr>
+        }
+    </tbody>
+</table>

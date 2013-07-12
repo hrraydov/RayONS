@@ -1,0 +1,16 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>Welcome <strong>@User.Identity.Name</strong>!
+    [ <a href="/Account/LogOff">Излез</a> ]<br />
+    [<a href="/Account/ChangePassword">Смени паролата</a>]<br />
+    </text>
+    if (!(User.IsInRole("Administrator") || User.IsInRole("Trainer")))
+    { 
+    <a href="/Trainer/TrainerQueries">Стани обучаващ</a> <br />
+    }
+    <a href="/ViewResults/">Резултати от тестовете</a>
+}
+else
+{
+    @:[ <a href="#" id="logOnLink">Влез</a> ]
+}

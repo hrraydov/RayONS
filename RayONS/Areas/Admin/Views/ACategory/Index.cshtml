@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RayONS.DAL.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Категории</h2>
+
+<p>
+    @Html.ActionLink("Създай нова", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Име на категорията
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Редактирай", "Edit", new { id=item.CategoryId }) |
+            @Html.ActionLink("Детайли", "Details", new { id=item.CategoryId }) |
+            @Html.ActionLink("Изтрий", "Delete", new { id=item.CategoryId })
+        </td>
+    </tr>
+}
+
+</table>

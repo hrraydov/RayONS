@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RayONS.DAL.CategoryQuery>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Заявки за категории</h2>
+@if (User.IsInRole("Trainer"))
+{
+    <p>
+        @Html.ActionLink("Създай нова", "Create")
+    </p>
+}
+<table>
+    <tr>
+        <th>Потребител
+        </th>
+        <th>Име на категорията
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Редактирай", "Edit", new { id = item.QueryId }) |
+            @Html.ActionLink("Изтрий", "Delete", new { id = item.QueryId })
+            </td>
+        </tr>
+    }
+
+</table>

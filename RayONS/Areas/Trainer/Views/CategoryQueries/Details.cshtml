@@ -1,0 +1,25 @@
+﻿@model RayONS.DAL.CategoryQuery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<fieldset>
+    <legend>Заявка за категория</legend>
+
+    <div class="display-label">UПотребител</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">Име на категорията</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new {  id=Model.QueryId  }) |
+    @Html.ActionLink("Обратно към списъка", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿@model List<RayONS.DAL.Question>
+@{
+    ViewBag.Title = "ViewTest";
+    int i = 0;
+}
+
+<h2>@ViewBag.TestName</h2>
+<form method="post" action="/Tests/Result/">
+    @foreach (var item in Model)
+    {
+        <fieldset>
+
+            <legend>@item.QuestionName</legend>
+            <div>
+                <input id="@i-1" type="radio" checked name="questions[@i]" value="1"/>
+                <label for="@i-1">@item.Answer1</label>
+            </div>
+            <div>
+                <input id="@i-2" type="radio" name="questions[@i]" value="2"/>
+                <label for="@i-2">@item.Answer2</label>
+            </div>
+            <div>
+                <input id="@i-3" type="radio" name="questions[@i]" value="3"/>
+                <label for="@i-3">@item.Answer3</label>
+            </div>
+            <div>
+                <input id="@i-4" type="radio" name="questions[@i]" value="4"/>
+                <label for="@i-4">@item.Answer4</label>
+            </div>
+            <div>
+                <input type="hidden" name="questionsIds[@i]" value="@item.QuestionId" />
+            </div>
+        </fieldset>
+        i++;
+    }
+    <input type="hidden" name="QuestionsCount" value="@i" />
+    @if (i > 0)
+    {
+        <input type="hidden" name="TestId" value="@Model[0].TestId" />    
+        <input type="submit" value="Submit" />
+    }
+    else
+    {
+        <span>Тестът няма записани въпроси</span>
+    }
+</form>

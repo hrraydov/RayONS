@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+<h2>Tests</h2>
+@if (Request.IsAuthenticated)
+{
+    <ul id="categoryMenu">
+        @foreach (RayONS.Models.CategoriesViewModel category in Model)
+        { 
+            <li><a href="#">@category.CategoryName</a>
+                @if (category.Subcat.Count() != 0)
+                {
+                    <ul>
+                        @foreach (RayONS.Models.Subcat item in category.Subcat)
+                        {
+                            <li><a href="#" class="subcategoryLinkForTests" data-subcategory-id="@item.SubcategoryId">@item.SubcategoryName</a></li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+    <div id="content">
+    </div>
+
+}
+else
+{
+    <a href="#" class="registerLink">Регистрирай се</a>
+}

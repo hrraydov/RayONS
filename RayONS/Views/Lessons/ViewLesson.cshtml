@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "ViewLesson";
+}
+
+<h2 class="lessonName">@ViewBag.LessonName</h2>
+@MvcHtmlString.Create(ViewBag.Content)
+<span class="lessonOwner">Автор: @ViewBag.LessonOwner</span>

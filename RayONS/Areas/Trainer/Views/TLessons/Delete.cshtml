@@ -1,0 +1,42 @@
+﻿@model RayONS.DAL.Lesson
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Изтрий</h2>
+
+<h3>Сигурен ли си, че искаш да го изтриеш?</h3>
+<fieldset>
+    <legend>Lesson</legend>
+
+    <div class="display-label">Подкатегория</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subcategory.SubcategoryName)
+    </div>
+
+    <div class="display-label">Име на урока</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LessonName)
+    </div>
+
+    <div class="display-label">Автор</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">Одобрен ли е?</div>
+    <div class="display-field">
+        @if (Model.IsApproved == 1)
+        { <span>Да</span>}
+        else
+        {<span>Не</span>}
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Изтрий" />
+        |
+        @Html.ActionLink("Обратно към списъка", "Index")
+    </p>
+}

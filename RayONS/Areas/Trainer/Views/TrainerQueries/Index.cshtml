@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RayONS.DAL.TrainerQuery>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Заявки за обучаващи</h2>
+@if (!User.IsInRole("Trainer") && !User.IsInRole("Administrator") && Model.Count() == 0)
+{
+    <p>
+        @Html.ActionLink("Създай нова", "Create")
+    </p>
+}
+<table>
+    <tr>
+        <th>Потребител
+        </th>
+        <th>Защо?
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Why)
+            </td>
+            <td>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a href="/Trainer/TrainerQueries/MakeTrainer/@item.UserId">Направи обучаващ</a>
+                }
+                else
+                {
+                    @Html.ActionLink("Редактирай", "Edit", new { id = item.UserId })
+                } |
+                @Html.ActionLink("Изтрий", "Delete", new { id = item.UserId })
+            </td>
+        </tr>
+    }
+
+</table>

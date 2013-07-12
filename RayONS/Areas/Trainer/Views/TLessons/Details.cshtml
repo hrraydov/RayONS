@@ -1,0 +1,43 @@
+﻿@model RayONS.DAL.Lesson
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<fieldset>
+    <legend>Урок</legend>
+
+    <div class="display-label">@Html.LabelFor(model => model.Subcategory.SubcategoryName, "Име на подкатегорията")</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subcategory.SubcategoryName)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(model => model.LessonName, "Име на урока")</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LessonName)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(model => model.User.UserName, "Автор")</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(model => model.IsApproved, "Одобрен ли е?")</div>
+    <div class="display-field">
+         @if (Model.IsApproved == 1)
+         { <span>Да</span>}
+         else
+         {<span>Не</span>}
+    </div>
+
+    <div class="content"></div>
+    <script>
+        var lessonUrl = "/Lessons/ViewLesson/?url=Lesson" + "@Model.LessonName" + " #main";
+        $(".content").load(lessonUrl);
+    </script>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new { id = Model.LessonId }) |
+    @Html.ActionLink("Обратно към списъка", "Index")
+</p>

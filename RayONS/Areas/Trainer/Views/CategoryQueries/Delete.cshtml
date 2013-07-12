@@ -1,0 +1,28 @@
+﻿@model RayONS.DAL.CategoryQuery
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Сигурни ли сте, че искате да го изтриете</h3>
+<fieldset>
+    <legend>Заявка за категория</legend>
+
+    <div class="display-label">Потребител</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">Име на категорията</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Изтрий" /> |
+        @Html.ActionLink("Обратно към списъка", "Index")
+    </p>
+}

@@ -1,0 +1,26 @@
+﻿@using RayONS.Models;
+@model List<CategoriesViewModel>
+@{
+    ViewBag.Title = "Category";
+}
+<div id="categoryMenuContainer">
+    <h2>Category</h2>
+    <ul id="categoryMenu">
+        @foreach (CategoriesViewModel category in Model)
+        { 
+            <li><a href="#">@category.CategoryName</a>
+                @if (category.Subcat.Count() != 0)
+                {
+                    <ul>
+                        @foreach (Subcat item in category.Subcat)
+                        {
+                            <li><a href="#" class="subcategoryLink" data-subcategory-id="@item.SubcategoryId">@item.SubcategoryName</a></li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+</div>
+<div id="content">
+</div>

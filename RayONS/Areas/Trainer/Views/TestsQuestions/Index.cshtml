@@ -1,0 +1,71 @@
+﻿@model IEnumerable<RayONS.DAL.Question>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Въпроси</h2>
+<script>
+    $(document).ready(function () {
+        oTable = $('#dataTable').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
+<p>
+    @Html.ActionLink("Създай нов", "Create", new { id = Url.RequestContext.RouteData.Values["id"] })
+</p>
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>Тест
+            </th>
+            <th>Верен отговор
+            </th>
+            <th>Име на въпроса?
+            </th>
+            <th>Отговор 1
+            </th>
+            <th>Отговор 2
+            </th>
+            <th>Отговор 3
+            </th>
+            <th>Отговор 4
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Test.TestName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrueAnswer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer4)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактирай", "Edit", new { id = item.QuestionId }) |
+                    @Html.ActionLink("Детайли", "Details", new { id = item.QuestionId }) |<br />
+                    @Html.ActionLink("Изтрий", "Delete", new { id = item.QuestionId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

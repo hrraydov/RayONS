@@ -1,0 +1,34 @@
+﻿@model RayONS.DAL.Test
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<fieldset>
+    <legend>Тест</legend>
+
+    <div class="display-label">Име на теста</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TestName)
+    </div>
+
+    <div class="display-label">Автор</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    @if (Model.isApproved == 1)
+    { <span>Да</span>}
+    else
+    {<span>Не</span>}
+
+    <div class="display-label">Подкатегория</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subcategory.SubcategoryName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new { id = Model.TestId }) |
+    @Html.ActionLink("Към списъка", "Index")
+</p>

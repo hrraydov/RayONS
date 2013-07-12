@@ -1,0 +1,54 @@
+﻿@model RayONS.DAL.Question
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Изтрий</h2>
+
+<h3>Сигурен ли си, че искаш да го изтриеш?</h3>
+<fieldset>
+    <legend>Въпрос</legend>
+
+    <div class="display-label">Тест</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Test.TestName)
+    </div>
+
+    <div class="display-label">Верен отговор</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TrueAnswer)
+    </div>
+
+    <div class="display-label">Име на въпрос</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionName)
+    </div>
+
+    <div class="display-label">Отговор 1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Answer1)
+    </div>
+
+    <div class="display-label">Отговор 2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Answer2)
+    </div>
+
+    <div class="display-label">Отговор 3</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Answer3)
+    </div>
+
+    <div class="display-label">Отговор 4</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Answer4)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Изтрий" />
+        |
+        @Html.ActionLink("Към списъка", "Index")
+    </p>
+}

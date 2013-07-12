@@ -1,0 +1,43 @@
+﻿@model RayONS.DAL.Subcategory
+@{
+    ViewBag.Title = "Create";
+    string error = ViewBag.Error;
+}
+
+<h2>Създай</h2>
+@if (!error.IsEmpty())
+{ <span>@error</span>}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Подкатегория</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryId, "Категория")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CategoryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubcategoryName, "Име на подкатегорията")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubcategoryName, "Име на подкатегорията")
+            @Html.ValidationMessageFor(model => model.SubcategoryName)
+        </div>
+
+        <p>
+            <input type="submit" value="Създай" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Към списъка", "Index")
+</div>

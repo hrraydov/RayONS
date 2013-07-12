@@ -1,0 +1,63 @@
+﻿@model List<RayONS.DAL.Lesson>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Уроци</h2>
+<script>
+    $(document).ready(function () {
+        oTable = $('#dataTable').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
+<p>
+    @Html.ActionLink("Създай нов", "Create")
+    @if (User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Виж само неодобрените", "SeeNotApproved")
+    }
+</p>
+<table class="display" id="dataTable">
+    <thead>
+        <tr>
+            <th>Подкатегория
+            </th>
+            <th>Име на урока
+            </th>
+            <th>Автор
+            </th>
+            <th>Одобрен ли е?
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategory.SubcategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LessonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @if (item.IsApproved == 1)
+                    { <span>Да</span>}
+                    else
+                    {<span>Не</span>}
+                </td>
+                <td>
+                    @Html.ActionLink("Редактирай", "Edit", new { id = item.LessonId }) |
+            @Html.ActionLink("Детайли", "Details", new { id = item.LessonId }) |
+            @Html.ActionLink("Изтрий", "Delete", new { id = item.LessonId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

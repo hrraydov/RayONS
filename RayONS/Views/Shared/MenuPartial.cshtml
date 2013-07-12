@@ -1,0 +1,20 @@
+﻿<nav>
+    <ul id="menu">
+        <li><a href="/">Уроци</a></li>
+        <li><a href="/Home/Tests">Тестове</a></li>
+        @if (User.Identity.IsAuthenticated && (User.IsInRole("Trainer") || User.IsInRole("Administrator")))
+        {
+            <li><a href="/Trainer/TLessons">Уроци(админ панел)</a></li>
+            <li><a href="/Trainer/TTests">Тестове(админ панел)</a></li>
+        }
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+        {
+            //If the user is administrator
+            <li><a href="/Admin/ACategory">Категории</a></li>
+            <li><a href="/Admin/ASubcategory">Подкатегории</a></li>
+            <li><a href="/Trainer/CategoryQueries/">Заявки за категории</a></li><br /><br />
+            <li><a href="/Trainer/TrainerQueries/">Заявки за обучаващи</a></li>
+        }
+
+    </ul>
+</nav>

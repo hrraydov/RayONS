@@ -1,0 +1,28 @@
+﻿@model RayONS.DAL.TrainerQuery
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Сигурни ли сте, че искате да  изтриете това?</h3>
+<fieldset>
+    <legend>Заявка за обучаващ</legend>
+
+    <div class="display-label">Потребител</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">Защо искате да станете обучаващ?</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Why)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Изтрий" /> |
+        @Html.ActionLink("Обратно към списъка", "Index")
+    </p>
+}

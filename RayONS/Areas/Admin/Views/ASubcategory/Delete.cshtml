@@ -1,0 +1,28 @@
+﻿@model RayONS.DAL.Subcategory
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Изтрий</h2>
+
+<h3>Сигурен ли си, че искаш да я изтриеш?</h3>
+<fieldset>
+    <legend>Подкатегория</legend>
+
+    <div class="display-label">Категория:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.CategoryName)
+    </div>
+
+    <div class="display-label">Име на подкатегорията:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubcategoryName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Изтрий" /> |
+        @Html.ActionLink("Към списъка", "Index")
+    </p>
+}

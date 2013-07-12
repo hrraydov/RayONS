@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.9.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/mainFunctions.js")"></script>
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="http://www.datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div class="page">
+
+        <section id="dialogs">
+            <div id="logOnDialog" class="dialog" title="Вход">
+            </div>
+            <div id="registerDialog" class="dialog" title="Регистрация">
+            </div>
+        </section>
+        <header>
+            <a id="logo" href="/">RayONS</a>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+            @Html.Partial("MenuPartial")
+        </header>
+        <section id="main">
+            @RenderBody()
+        </section>
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>

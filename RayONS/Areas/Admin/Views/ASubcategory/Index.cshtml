@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RayONS.DAL.Subcategory>
+@{
+    ViewBag.Title = "Index";
+    int i = 0;
+}
+
+<h2>Подкатегории</h2>
+<p>
+    @Html.ActionLink("Създай нова", "Create")
+</p>
+@foreach (var varb in (List<string>)ViewData["categories"])
+{
+    <a href="#" data-target="@i" class="categoryLinker">@varb</a><br />
+    <table class="categoryTable" id="@i">
+        <tr>
+            <th>Име на подкатегорията
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (item.Category.CategoryName == varb)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubcategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактирай", "Edit", new { id = item.SubcategoryId }) |
+                    @Html.ActionLink("Детайли", "Details", new { id = item.SubcategoryId }) |
+                    @Html.ActionLink("Изтрий", "Delete", new { id = item.SubcategoryId })
+                </td>
+            </tr>
+            }
+        }
+    </table>
+        i++;
+}

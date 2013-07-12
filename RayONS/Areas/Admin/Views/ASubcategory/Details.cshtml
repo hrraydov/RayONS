@@ -1,0 +1,25 @@
+﻿@model RayONS.DAL.Subcategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<fieldset>
+    <legend>Подкатегория</legend>
+
+    <div class="display-label">Категория:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.CategoryName)
+    </div>
+
+    <div class="display-label">Име на подкатегорията"</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubcategoryName,"Име на подкатегорията")
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new { id=Model.SubcategoryId }) |
+    @Html.ActionLink("Към списъка", "Index")
+</p>
